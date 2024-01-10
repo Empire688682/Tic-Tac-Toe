@@ -8,7 +8,17 @@ let data = Array(9).fill("");
 const Tictactoe = () => {
   const [count, setCount] = useState(0);
   const [lock, setLock] = useState(false);
-  const titleRef = useRef(null)
+  const titleRef = useRef(null);
+  const box1 = useRef(null)
+  const box2 = useRef(null)
+  const box3 = useRef(null)
+  const box4 = useRef(null)
+  const box5 = useRef(null)
+  const box6 = useRef(null)
+  const box7 = useRef(null)
+  const box8 = useRef(null)
+  const box9 = useRef(null)
+ const box_Arrays = [box1,box2,box3,box4,box5,box6,box7,box8,box9];
 
   const toggle = (e, num) => {
     if(lock){
@@ -57,11 +67,27 @@ const Tictactoe = () => {
   const won = (winner) =>{
     setLock(true);
     if(winner === "o"){
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = "Congratulation circle won"
+      window.speechSynthesis.speak(speech);
       titleRef.current.innerHTML = `Congratulation: <img src=${circle_Icon} />` + "Won";
     }
     else{
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = "Congratulation Times won"
+      window.speechSynthesis.speak(speech);
       titleRef.current.innerHTML = `Congratulation: <img src=${cross_Icon} />` + "Won";
     }
+  }
+
+  const resetState = () =>{
+    setLock(false);
+    setCount(0)
+    titleRef.current.innerHTML = "TIC TAC TOE GAME";
+    box_Arrays.map((boxs) =>{
+      boxs.current.innerHTML = "";
+    });
+    data = Array(9).fill("")
   }
 
   return (
@@ -70,21 +96,21 @@ const Tictactoe = () => {
         <h1 ref={titleRef}>TIC TAC TOE GAME</h1>
         <div className="row">
           <div className="colums">
-            <div onClick={(e) =>{toggle(e,0)}} className="boxes"></div>
-            <div onClick={(e) =>{toggle(e,1)}} className="boxes"></div>
-            <div onClick={(e) =>{toggle(e,2)}} className="boxes"></div>
+            <div ref={box1} onClick={(e) =>{toggle(e,0)}} className="boxes"></div>
+            <div ref={box2} onClick={(e) =>{toggle(e,1)}} className="boxes"></div>
+            <div ref={box3} onClick={(e) =>{toggle(e,2)}} className="boxes"></div>
           </div>
           <div className="colums">
-            <div onClick={(e) =>{toggle(e,3)}} className="boxes"></div>
-            <div onClick={(e) =>{toggle(e,4)}} className="boxes"></div>
-            <div onClick={(e) =>{toggle(e,5)}} className="boxes"></div>
+            <div ref={box4} onClick={(e) =>{toggle(e,3)}} className="boxes"></div>
+            <div ref={box5} onClick={(e) =>{toggle(e,4)}} className="boxes"></div>
+            <div ref={box6} onClick={(e) =>{toggle(e,5)}} className="boxes"></div>
           </div>
           <div className="colums">
-            <div onClick={(e) =>{toggle(e,6)}} className="boxes"></div>
-            <div onClick={(e) =>{toggle(e,7)}} className="boxes"></div>
-            <div onClick={(e) =>{toggle(e,8)}} className="boxes"></div>
+            <div ref={box7} onClick={(e) =>{toggle(e,6)}} className="boxes"></div>
+            <div ref={box8} onClick={(e) =>{toggle(e,7)}} className="boxes"></div>
+            <div ref={box9} onClick={(e) =>{toggle(e,8)}} className="boxes"></div>
           </div>
-          <button  type="button">Reset</button>
+          <button  type="button" onClick={resetState}>Reset</button>
         </div>
       </div>
     </div>
