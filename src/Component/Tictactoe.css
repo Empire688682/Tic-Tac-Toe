@@ -1,0 +1,29 @@
+.boxes{
+    width: 90px;
+    height: 90px;
+    background-color: black;
+    margin: 3px;
+    cursor: pointer;
+}
+.colums{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row{
+    margin-top: 30px;
+}
+.tictactoe h1{
+    color: white;
+    font-size: 30px;
+}
+button{
+    font-size: 20px;
+    margin-top: 30px;
+    padding: 20px 60px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}

@@ -1,9 +1,10 @@
 import React from 'react'
 import Tictactoe from './Component/Tictactoe'
+import './App.css'
 
 const App = () => {
   return (
-    <div>
+    <div className='container'>
       <Tictactoe/>
     </div>
   )
