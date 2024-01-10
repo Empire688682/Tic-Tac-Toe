@@ -111,6 +111,9 @@ const Tictactoe = () => {
             <div ref={box9} onClick={(e) =>{toggle(e,8)}} className="boxes"></div>
           </div>
           <button  type="button" onClick={resetState}>Reset</button>
+          <p>In the realm of timeless games, Jayempire introduces an engaging twist to the classic Tic Tac Toe—an age-old contest of strategic prowess, brought to life through the lens of coding artistry. This digital rendition invites players into a world where every move is a dance of intellect, and each decision holds the key to victory.</p>
+          <p>The rules are simple yet profound: achieve three consecutive symbols—X or O—in a row, horizontally, vertically, or diagonally. As players embark on this strategic odyssey, the battlefield unfolds with each move, presenting opportunities and challenges alike. The coveted moment of triumph belongs to the player who skillfully aligns their symbols, outsmarting their opponent in a brilliant display of wit.</p>
+          <h2>Happy Play.</h2>
         </div>
       </div>
     </div>
