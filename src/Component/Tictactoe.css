@@ -6,6 +6,10 @@
     cursor: pointer;display: flex;
     align-self: center;
     justify-content: center;
+    transition: .4s ease-in;
+}
+.boxes:hover{
+    background-color: white;
 }
 .boxes img{
     width: 100%;
@@ -20,7 +24,7 @@
     margin-top: 30px;
 }
 .tictactoe h1{
-    color: rgb(58, 58, 233);
+    color: white;
     font-size: 30px;
     display: flex;
     align-items: center;
