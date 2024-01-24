@@ -7,6 +7,8 @@ import cross_Icon from '../Component/Assets/cross.png'
 let data = Array(9).fill("");
 const Tictactoe = () => {
   const [count, setCount] = useState(0);
+  const [Xwinner, setXWinner] = useState(0);
+  const [Owinner, setOWinner] = useState(0);
   const [lock, setLock] = useState(false);
   const titleRef = useRef(null);
   const box1 = useRef(null)
@@ -68,14 +70,16 @@ const Tictactoe = () => {
     setLock(true);
     if(winner === "o"){
       const speech = new SpeechSynthesisUtterance();
-      speech.text = "Congratulation circle won"
+      speech.text = "Congratulation circle won";
       window.speechSynthesis.speak(speech);
+      setOWinner(Owinner+1);
       titleRef.current.innerHTML = `Congratulation: <img src=${circle_Icon} />` + "Won";
     }
     else{
       const speech = new SpeechSynthesisUtterance();
       speech.text = "Congratulation Times won"
       window.speechSynthesis.speak(speech);
+      setXWinner(Xwinner+1);
       titleRef.current.innerHTML = `Congratulation: <img src=${cross_Icon} />` + "Won";
     }
   }
@@ -94,6 +98,16 @@ const Tictactoe = () => {
     <div>
       <div className="tictactoe">
         <h1 ref={titleRef}>TIC TAC TOE GAME</h1>
+        <div className="winner-box">
+          <div>
+            <img src={circle_Icon} />
+            <h1>{Owinner}</h1>
+          </div>
+          <div>
+            <img src={cross_Icon}/>
+            <h1>{Xwinner}</h1>
+          </div>
+        </div>
         <div className="row">
           <div className="colums">
             <div ref={box1} onClick={(e) =>{toggle(e,0)}} className="boxes"></div>
